@@ -15,12 +15,10 @@ conda install -y openblas delocate pip
 python setup.py build
 python setup.py install
 
-cd ${HOME}/miniconda/lib/python${PYVERD}/site-packages/
+mkdir ${HOME}/miniconda/lib/python${PYVERD}/site-packages/myModule-${VERSION}.dist-info
+cp METADATA WHEEL ${HOME}/miniconda/lib/python${PYVERD}/site-packages/myModule-${VERSION}.dist-info
 
-# write metadata
-mkdir myModule-${VERSION}.dist-info
-touch myModule-${VERSION}.dist-info/WHEEL
-touch myModule-${VERSION}.dist-info/METADATA
+cd ${HOME}/miniconda/lib/python${PYVERD}/
 
 # create archive
 zip -r /tmp/myModule-${VERSION}-${TAG}.whl myModule myModule-${VERSION}.dist-info
