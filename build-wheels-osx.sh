@@ -24,13 +24,14 @@ touch myModule-${VERSION}.dist-info/WHEEL
 touch myModule-${VERSION}.dist-info/METADATA
 
 # create archive
-zip -r myModule-${VERSION}-${TAG}.whl myModule*.so myModule-${VERSION}.dist-info
+zip -r myModule-${VERSION}-${TAG}.whl myModule myModule-${VERSION}.dist-info
 
 delocate-listdeps myModule-${VERSION}-${TAG}.whl
 delocate-wheel myModule-${VERSION}-${TAG}.whl
 delocate-listdeps --all myModule-${VERSION}-${TAG}.whl
 
 # missing libs
+mkdir myModule/.dylibs
 for libname in libquadmath.0 libgcc_s.1 libc++abi.1 libgfortran.3
 do
   cp ${HOME}/miniconda/lib/${libname}.dylib myModule/.dylibs
@@ -43,6 +44,6 @@ bash /tmp/Miniconda3-latest-MacOSX-x86_64.sh -b -p ${HOME}/miniconda
 conda install -y python=${PYVERD} pip
 
 pip install myModule --no-index -f ${TRAVIS_BUILD_DIR}/wheelhouse
-python -c "import myModule"
+python -c "import myModule; myModule.helloworld()"
 
 
