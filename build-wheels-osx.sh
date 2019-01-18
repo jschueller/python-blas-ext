@@ -18,6 +18,7 @@ python setup.py install
 # copy metadata
 mkdir ${HOME}/miniconda/lib/python${PYVERD}/site-packages/myModule-${VERSION}.dist-info
 cp METADATA WHEEL ${HOME}/miniconda/lib/python${PYVERD}/site-packages/myModule-${VERSION}.dist-info
+touch ${HOME}/miniconda/lib/python${PYVERD}/site-packages/myModule-${VERSION}.dist-info/RECORD
 
 cd ${HOME}/miniconda/lib/python${PYVERD}/site-packages
 
