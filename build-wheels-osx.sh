@@ -3,7 +3,7 @@
 set -e -x
 
 PYVERD=3.7
-TAG=macosx_10_10_x86_64
+TAG=cp37-cp37m-macosx_10_10_x86_64
 VERSION=1.0
 
 wget --no-check-certificate https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -P /tmp
