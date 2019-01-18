@@ -21,6 +21,8 @@ cp METADATA WHEEL ${HOME}/miniconda/lib/python${PYVERD}/site-packages/myModule-$
 touch ${HOME}/miniconda/lib/python${PYVERD}/site-packages/myModule-${VERSION}.dist-info/RECORD
 
 cd ${HOME}/miniconda/lib/python${PYVERD}/site-packages
+otool -L myModule/myModule.cpython-37m-darwin.so
+install_name_tool -id "@rpath/myModule.cpython-37m-darwin.so" myModule/myModule.cpython-37m-darwin.so
 
 # create archive
 zip -r /tmp/myModule-${VERSION}-${TAG}.whl myModule myModule-${VERSION}.dist-info
