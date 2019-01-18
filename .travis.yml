@@ -1,0 +1,8 @@
+language: generic
+
+matrix:
+  include:
+    - os: osx
+
+script:
+  - ./build-wheels-osx.sh
